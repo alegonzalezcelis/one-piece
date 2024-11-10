@@ -1,0 +1,166 @@
+body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+      }
+      .ocean {
+        background: linear-gradient(to bottom, #87ceeb, #4682b4);
+        height: 100%;
+        max-width: 150%;
+        position: relative;
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+      .content-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+      }
+      .grand-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: repeating-linear-gradient(
+          45deg,
+          #4682b4,
+          #4682b4 10px,
+          #5f9ea0 10px,
+          #5f9ea0 20px
+        );
+        transform: translateY(-50%);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      .grand-line::before,
+      .grand-line::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        bottom: -10px;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: wave 10s infinite linear;
+      }
+      .grand-line::after {
+        animation-delay: -5s;
+      }
+      @keyframes wave {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+      .red-line {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 40px;
+        background: linear-gradient(to right, #8b0000, #b22222, #8b0000);
+        transform: translateX(-50%);
+        clip-path: polygon(
+          20% 0%,
+          80% 0%,
+          100% 20%,
+          100% 80%,
+          80% 100%,
+          20% 100%,
+          0% 80%,
+          0% 20%
+        );
+        z-index: 10;
+      }
+      .red-line::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.1) 10px,
+          rgba(255, 255, 255, 0.1) 20px
+        );
+      }
+      .island {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle at 30% 30%, #f4a460, #8b4513);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: #000;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+      }
+      .island::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        border: 2px dashed #8b4513;
+        border-radius: 50%;
+        animation: rotate 30s linear infinite;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .island:nth-child(1) {
+        top: 30%;
+        left: 10%;
+      }
+      .island:nth-child(2) {
+        top: 70%;
+        left: 30%;
+      }
+      .island:nth-child(3) {
+        top: 20%;
+        left: 50%;
+      }
+      .island:nth-child(4) {
+        top: 60%;
+        left: 70%;
+      }
+      .island:nth-child(5) {
+        top: 40%;
+        left: 90%;
+      }
+      .title {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 10px 20px;
+        border-radius: 10px;
+        z-index: 20;
+      }
